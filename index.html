@@ -1,167 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victoria Sanchez | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Rutgers Business School</title>
+  <!-- Google Fonts for a pretty, modern aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #fffafc;
+      --card-bg: #ffffff;
+      --primary-pink: #f472b6;
+      --accent-pink: #ec4899;
+      --soft-pink-bg: #fdf2f8;
+      --border-pink: #fbcfe8;
+      --text-dark: #331825;
+      --text-muted: #705262;
+      --shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.12);
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&ns:wght@300;400;500;600&display=swap
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff7fa;
-            color: #444;
-        }
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
 
-        header {
-            background: linear-gradient(135deg, #ff9ec7, #ffc2d9);
-            text-align: center;
-            color: white;
-            padding: 70px 20px;
-        }
+    header {
+      background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+      border: 1px solid var(--border-pink);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            margin-bottom: 10px;
-        }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
 
-        header p {
-            font-size: 1.2rem;
-        }
+    .name {
+      font-size: 2.2rem;
+      color: var(--accent-pink);
+      margin-bottom: 0.5rem;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      max-width: 650px;
+      margin: 0 auto;
+    }
 
-        .card {
-            background: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
+    .section {
+      background: var(--card-bg);
+      border: 1px solid var(--border-pink);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
 
-        h2 {
-            color: #e75480;
-            margin-bottom: 15px;
-        }
+    h2 {
+      color: var(--accent-pink);
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 2px solid var(--soft-pink-bg);
+      padding-bottom: 0.5rem;
+    }
 
-        ul {
-            padding-left: 20px;
-        }
+    /* Skills Badges */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
 
-        li {
-            margin-bottom: 8px;
-        }
+    .skill-badge {
+      background-color: var(--soft-pink-bg);
+      color: var(--accent-pink);
+      border: 1px solid var(--border-pink);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
 
-        .project {
-            margin-bottom: 20px;
-        }
+    /* Projects & Experience Cards */
+    .card {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--border-pink);
+    }
 
-        .project h3 {
-            color: #d63384;
-            margin-bottom: 5px;
-        }
+    .card:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffc2d9;
-            color: white;
-            margin-top: 40px;
-        }
-    </style>
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: var(--accent-pink);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--accent-pink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Interests & Leadership List */
+    .bullet-list {
+      list-style-type: none;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .bullet-list li::before {
+      content: "🌸";
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Victoria Sanchez</h1>
-    <p>Supply Chain Management Student | Future Operations & Logistics Professional</p>
-</header>
+  <div class="container">
+    
+    <!-- Header / Personal Statement -->
+    <header>
+      <h1 class="name">Supply Chain & Operations Portfolio</h1>
+      <p class="tagline">
+        Driven Rutgers Business School student studying Supply Chain Management (Expected May 2027), with hands-on operations experience and a passion for optimizing global logistics.
+      </p>
+    </header>
 
-<div class="container">
+    <!-- Experience Section -->
+    <div class="section">
+      <h2>Experience</h2>
+      <div class="card">
+        <div class="card-title">Operations Intern</div>
+        <div class="card-subtitle">RBC Capital Markets — Office of the COO | Jul 2023 – Aug 2023 (Jersey City, NJ)</div>
+        <p>Gained operational exposure within executive operations, assisting with workflow optimization, key operational reporting, and team initiatives.</p>
+      </div>
+    </div>
 
-    <section class="card">
-        <h2>Personal Statement</h2>
-        <p>
-            I am a Rutgers Business School student studying Supply Chain Management with an expected graduation date of May 2027 and a passion for operations, logistics, and process improvement.
-        </p>
-    </section>
+    <!-- Skills Section -->
+    <div class="section">
+      <h2>Technical & Professional Skills</h2>
+      <div class="skills-grid">
+        <span class="skill-badge">SQL</span>
+        <span class="skill-badge">Tableau</span>
+        <span class="skill-badge">Microsoft Excel</span>
+        <span class="skill-badge">Microsoft PowerPoint</span>
+        <span class="skill-badge">Microsoft Word</span>
+        <span class="skill-badge">Supply Chain Planning</span>
+        <span class="skill-badge">Process Optimization</span>
+      </div>
+    </div>
 
-    <section class="card">
-        <h2>Skills</h2>
-        <ul>
-            <li>Microsoft Excel, PowerPoint, and Word</li>
-            <li>SQL</li>
-            <li>Tableau</li>
-        </ul>
-    </section>
+    <!-- Projects Section -->
+    <div class="section">
+      <h2>Featured Projects</h2>
+      
+      <div class="card">
+        <div class="card-title">Customer Service Centralization Case Study</div>
+        <div class="card-subtitle">Capri Holdings Team Project</div>
+        <p>Designed a project charter and strategic roadmap to establish 3 central customer service hubs, improving operational efficiency and brand alignment across global operations.</p>
+        <a href="#" class="project-link">View Charter Document &rarr;</a>
+      </div>
 
-    <section class="card">
-        <h2>Professional Experience</h2>
+      <div class="card">
+        <div class="card-title">Packaging Strategy Case Study</div>
+        <div class="card-subtitle">Meridian Consumer Brands Team Project</div>
+        <p>Developed an end-to-end packaging strategy and presented solutions directly to an executive panel featuring industry professionals from Johnson & Johnson.</p>
+        <a href="#" class="project-link">View Presentation Deck &rarr;</a>
+      </div>
+    </div>
 
-        <h3>RBC Capital Markets</h3>
-        <p><strong>Operations Intern, Office of the COO</strong></p>
-        <p>July 2023 – August 2023</p>
+    <!-- Leadership & Mentorship Section -->
+    <div class="section">
+      <h2>Leadership & Mentorship</h2>
+      <ul class="bullet-list">
+        <li><strong>Mentor</strong> — Rutgers Undergraduate Women in Business</li>
+        <li><strong>Mentor</strong> — Rutgers University Supply Chain Association</li>
+      </ul>
+    </div>
 
-        <br>
+    <!-- Interests Section -->
+    <div class="section">
+      <h2>Areas of Interest</h2>
+      <div class="skills-grid">
+        <span class="skill-badge">Procurement</span>
+        <span class="skill-badge">Operations</span>
+        <span class="skill-badge">Consulting</span>
+        <span class="skill-badge">Logistics</span>
+      </div>
+    </div>
 
-        <p>
-            Supported operational initiatives within the Office of the Chief Operating Officer, gaining exposure to financial services operations, business processes, and organizational strategy.
-        </p>
-    </section>
-
-    <section class="card">
-        <h2>Leadership & Involvement</h2>
-        <ul>
-            <li>Mentor, Rutgers Undergraduate Women in Business (RUWIB)</li>
-            <li>Mentor, Rutgers University Supply Chain Association (RUSCA)</li>
-        </ul>
-    </section>
-
-    <section class="card">
-        <h2>Projects</h2>
-
-        <div class="project">
-            <h3>Capri Holdings Customer Service Centralization Case Study</h3>
-            <p>
-                Collaborated with a team to develop a customer service centralization strategy that recommended establishing three service hubs to improve efficiency, streamline communication, and enhance customer satisfaction.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>Meridian Consumer Brands Packaging Strategy Case Study</h3>
-            <p>
-                Worked with a team to create a packaging and supply chain strategy that was presented to an executive panel consisting of business professionals, including representatives from Johnson & Johnson.
-            </p>
-        </div>
-    </section>
-
-    <section class="card">
-        <h2>Professional Interests</h2>
-        <ul>
-            <li>Procurement</li>
-            <li>Operations</li>
-            <li>Consulting</li>
-            <li>Logistics</li>
-        </ul>
-    </section>
-
-</div>
-
-<footer>
-    <p>© 2026 Victoria Sanchez</p>
-</footer>
+  </div>
 
 </body>
 </html>
