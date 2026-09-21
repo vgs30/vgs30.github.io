@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Rutgers Business School</title>
-  
+
   <style>
     :root {
       --navy: #002B49;
@@ -13,6 +13,7 @@
       --bg-gray: #F8FAFC;
       --text-dark: #1E293B;
       --text-muted: #64748B;
+      --white: #FFFFFF;
     }
 
     * {
@@ -21,82 +22,154 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-gray);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-gray);
       color: var(--text-dark);
       line-height: 1.6;
-      padding: 40px 20px;
     }
 
-    .container {
-      max-width: 700px;
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    .nav-container {
+      max-width: 900px;
       margin: 0 auto;
-      background-color: #FFFFFF;
-      border: 1px solid var(--border-gray);
-      border-radius: 8px;
-      padding: 40px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
+    .nav-name {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+
+    /* Hero */
     header {
+      padding: 70px 0 60px;
       border-bottom: 2px solid var(--navy);
-      padding-bottom: 20px;
-      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      color: var(--navy-light);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
     h1 {
       color: var(--navy);
-      font-size: 28px;
-      margin-bottom: 10px;
+      font-size: clamp(38px, 7vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 20px;
     }
 
     .intro {
-      font-size: 17px;
+      max-width: 700px;
+      font-size: 19px;
       color: var(--text-dark);
     }
 
+    /* Sections */
     section {
-      margin-bottom: 30px;
+      padding: 55px 0;
+      border-bottom: 1px solid var(--border-gray);
     }
 
     h2 {
       color: var(--navy);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      border-bottom: 1px solid var(--border-gray);
-      padding-bottom: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 28px;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 1.5px;
     }
 
     .item {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--border-gray);
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 43, 73, 0.08);
     }
 
     .item-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 2px;
+      gap: 20px;
+      margin-bottom: 4px;
     }
 
     .title {
-      font-size: 17px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
       color: var(--text-dark);
     }
 
     .date {
       color: var(--text-muted);
       font-size: 14px;
+      white-space: nowrap;
     }
 
     .subtitle {
       color: var(--navy-light);
       font-size: 14px;
-      margin-bottom: 6px;
+      font-weight: 500;
+      margin-bottom: 8px;
     }
 
     p {
@@ -104,97 +177,173 @@
       color: #334155;
     }
 
+    /* Lists */
     ul {
       list-style: none;
-      padding-left: 0;
+      display: grid;
+      gap: 12px;
     }
 
     li {
-      margin-bottom: 10px;
+      background: var(--white);
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      padding: 14px 18px;
       font-size: 15px;
-      padding-left: 18px;
-      position: relative;
+      color: #334155;
     }
 
-    li::before {
-      content: "•";
-      color: var(--navy);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-
-    /* Simple Tag Layout for Skills & Interests */
+    /* Tags */
     .tag-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .tag {
-      background-color: var(--bg-gray);
+      background: var(--white);
       border: 1px solid var(--border-gray);
       color: var(--text-dark);
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 20px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .tag:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0 10px;
+      color: var(--text-muted);
       font-size: 14px;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-gray);
-      font-size: 14px;
-      color: var(--text-muted);
+    /* Mobile */
+    @media (max-width: 600px) {
+      .nav-container {
+        padding: 14px 18px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      main {
+        padding: 30px 18px;
+      }
+
+      header {
+        padding: 50px 0 45px;
+      }
+
+      .item-header {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .date {
+        white-space: normal;
+      }
+
+      section {
+        padding: 40px 0;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="container">
-    
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-name">Portfolio</div>
+
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#interests">Interests</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
     <!-- Personal Statement -->
     <header>
+      <div class="eyebrow">Rutgers Business School</div>
+
       <h1>Portfolio</h1>
+
       <p class="intro">
         I am a Rutgers Business School student studying Supply Chain Management with an expected graduation date of May 2027.
       </p>
     </header>
 
     <!-- Experience -->
-    <section>
+    <section id="experience">
       <h2>Experience</h2>
+
       <div class="item">
         <div class="item-header">
           <span class="title">Operations Intern</span>
           <span class="date">Jul 2023 - Aug 2023</span>
         </div>
-        <div class="subtitle">RBC Capital Markets - Office of the COO | Jersey City, NJ</div>
-        <p>Worked on daily operations and business projects in the Office of the Chief Operating Officer.</p>
+
+        <div class="subtitle">
+          RBC Capital Markets - Office of the COO | Jersey City, NJ
+        </div>
+
+        <p>
+          Worked on daily operations and business projects in the Office of the Chief Operating Officer.
+        </p>
       </div>
     </section>
 
     <!-- Projects -->
-    <section>
+    <section id="projects">
       <h2>Projects</h2>
-      
+
       <div class="item">
         <div class="title">Capri Holdings Team Case Study</div>
-        <div class="subtitle">Customer Service Centralization</div>
-        <p>Created a charter document to set up 3 new customer service hubs in different countries.</p>
+
+        <div class="subtitle">
+          Customer Service Centralization
+        </div>
+
+        <p>
+          Created a charter document to set up 3 new customer service hubs in different countries.
+        </p>
       </div>
 
       <div class="item">
         <div class="title">Meridian Consumer Brands Team Case Study</div>
-        <div class="subtitle">Packaging Strategy</div>
-        <p>Created a new packaging strategy and presented it to a panel of professionals from Johnson & Johnson.</p>
+
+        <div class="subtitle">
+          Packaging Strategy
+        </div>
+
+        <p>
+          Created a new packaging strategy and presented it to a panel of professionals from Johnson & Johnson.
+        </p>
       </div>
     </section>
 
     <!-- Skills -->
-    <section>
+    <section id="skills">
       <h2>Skills</h2>
+
       <div class="tag-container">
         <span class="tag">Microsoft Office (PowerPoint, Excel, Word)</span>
         <span class="tag">SQL</span>
@@ -203,8 +352,9 @@
     </section>
 
     <!-- Leadership -->
-    <section>
+    <section id="leadership">
       <h2>Leadership & Mentorship</h2>
+
       <ul>
         <li>Mentor, Rutgers Undergraduate Women in Business</li>
         <li>Mentor, Rutgers University Supply Chain Association</li>
@@ -213,8 +363,9 @@
     </section>
 
     <!-- Interests -->
-    <section>
+    <section id="interests">
       <h2>Interests</h2>
+
       <div class="tag-container">
         <span class="tag">Procurement</span>
         <span class="tag">Operations</span>
@@ -224,11 +375,13 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer>
       <p>Rutgers Business School | Supply Chain Management</p>
     </footer>
 
-  </div>
+  </main>
 
 </body>
 </html>
+
