@@ -3,23 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supply Chain & Operations Portfolio</title>
-  <!-- Google Fonts: Elegant Playfair Display headers paired with clean Inter body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <title>Portfolio - Rutgers Business School</title>
   
   <style>
     :root {
-      --bg-page: #fff9fb;
-      --card-bg: #ffffff;
-      --pink-primary: #db2777; /* Sophisticated deep rose pink */
-      --pink-soft: #fce7f3;    /* Gentle pink accent */
-      --pink-border: #fbcfe8;  /* Subtle line color */
-      --pink-hover: #be185d;
-      --text-main: #1f2937;
-      --text-muted: #4b5563;
-      --shadow-subtle: 0 4px 20px -2px rgba(219, 39, 119, 0.06);
+      --navy: #002B49;
+      --navy-light: #1A446C;
+      --border-gray: #CCCCCC;
+      --bg-gray: #F4F6F8;
+      --text-dark: #111111;
     }
 
     * {
@@ -29,197 +21,107 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-page);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 3rem 1.5rem;
+      font-family: "Times New Roman", Times, serif;
+      background-color: var(--bg-gray);
+      color: var(--text-dark);
+      line-height: 1.5;
+      padding: 40px 20px;
     }
 
     .container {
-      max-width: 820px;
+      max-width: 800px;
       margin: 0 auto;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-gray);
+      padding: 40px;
     }
 
-    /* Header & Personal Statement */
     header {
-      background: var(--card-bg);
-      border: 1px solid var(--pink-border);
-      border-left: 5px solid var(--pink-primary);
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow-subtle);
-      margin-bottom: 2rem;
-    }
-
-    .header-badge {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--pink-primary);
-      background-color: var(--pink-soft);
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      margin-bottom: 0.75rem;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
-      color: var(--text-main);
-      margin-bottom: 0.75rem;
-      font-weight: 700;
+      color: var(--navy);
+      font-size: 28px;
+      margin-bottom: 10px;
     }
 
-    .statement {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      font-weight: 400;
-      line-height: 1.7;
+    .intro {
+      font-size: 18px;
     }
 
-    /* Section Structure */
-    .section {
-      background: var(--card-bg);
-      border: 1px solid var(--pink-border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 1.75rem;
-      box-shadow: var(--shadow-subtle);
+    section {
+      margin-bottom: 30px;
     }
 
     h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--pink-primary);
-      font-size: 1.4rem;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: var(--navy);
+      font-size: 20px;
+      border-bottom: 1px solid var(--border-gray);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    h2::after {
-      content: "";
-      flex-grow: 1;
-      height: 1px;
-      background-color: var(--pink-border);
-      margin-left: 0.5rem;
-    }
-
-    /* Card Layout for Experience & Projects */
-    .item-card {
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid #f3e8ff;
-    }
-
-    .item-card:last-child {
-      padding-bottom: 0;
-      margin-bottom: 0;
-      border-bottom: none;
+    .item {
+      margin-bottom: 15px;
     }
 
     .item-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 0.25rem;
+      font-weight: bold;
     }
 
-    .item-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-main);
+    .title {
+      font-size: 17px;
     }
 
-    .item-date {
-      font-size: 0.85rem;
-      color: var(--pink-primary);
-      font-weight: 500;
+    .date {
+      color: var(--navy);
     }
 
-    .item-subtitle {
-      font-size: 0.9rem;
-      color: var(--pink-hover);
-      font-weight: 500;
-      margin-bottom: 0.6rem;
+    .subtitle {
+      font-style: italic;
+      margin-bottom: 5px;
     }
 
-    .item-description {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
+    p {
+      font-size: 16px;
     }
 
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      margin-top: 0.6rem;
-      color: var(--pink-primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
-      transition: color 0.2s ease;
+    ul {
+      margin-left: 20px;
     }
 
-    .project-link:hover {
-      color: var(--pink-hover);
+    li {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--navy);
       text-decoration: underline;
     }
 
-    /* Skills & Focus Pills */
-    .pill-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
+    a:hover {
+      color: var(--navy-light);
     }
 
-    .pill {
-      background-color: var(--pink-soft);
-      color: var(--pink-hover);
-      border: 1px solid var(--pink-border);
-      padding: 0.45rem 0.9rem;
-      border-radius: 6px;
-      font-weight: 500;
-      font-size: 0.88rem;
+    .skills-list {
+      list-style-type: square;
     }
 
-    /* Leadership Bullet List */
-    .leadership-list {
-      list-style: none;
-    }
-
-    .leadership-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .leadership-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .leadership-list li::before {
-      content: "•";
-      color: var(--pink-primary);
-      font-size: 1.5rem;
-      position: absolute;
-      left: 0.2rem;
-      top: -0.2rem;
-    }
-
-    /* Footer */
     footer {
       text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 2rem;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-gray);
+      font-size: 14px;
+      color: #555555;
     }
   </style>
 </head>
@@ -227,98 +129,76 @@
 
   <div class="container">
     
-    <!-- Header & Personal Statement -->
+    <!-- Personal Statement -->
     <header>
-      <span class="header-badge">Rutgers Business School</span>
-      <h1>Supply Chain & Operations Portfolio</h1>
-      <p class="statement">
-        I am a Rutgers Business School student studying Supply Chain Management with an expected graduation date of May 2027, specializing in operational efficiency, strategic procurement, and end-to-end logistics solutions.
+      <h1>Portfolio</h1>
+      <p class="intro">
+        I am a Rutgers Business School student studying Supply Chain Management with an expected graduation date of May 2027.
       </p>
     </header>
 
-    <!-- Experience Section -->
-    <section class="section">
+    <!-- Experience -->
+    <section>
       <h2>Experience</h2>
-      <div class="item-card">
+      <div class="item">
         <div class="item-header">
-          <span class="item-title">Operations Intern</span>
-          <span class="item-date">Jul 2023 – Aug 2023</span>
+          <span class="title">Operations Intern</span>
+          <span class="date">Jul 2023 - Aug 2023</span>
         </div>
-        <div class="item-subtitle">RBC Capital Markets — Office of the COO | Jersey City, NJ</div>
-        <p class="item-description">
-          Supported strategic initiatives within the Office of the Chief Operating Officer, assisting with high-level operational workflows, reporting, and process reviews.
-        </p>
+        <div class="subtitle">RBC Capital Markets - Office of the COO | Jersey City, NJ</div>
+        <p>Worked on daily operations and business projects in the Office of the Chief Operating Officer.</p>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section">
-      <h2>Featured Projects</h2>
+    <!-- Projects -->
+    <section>
+      <h2>Projects</h2>
       
-      <div class="item-card">
-        <div class="item-header">
-          <span class="item-title">Customer Service Centralization Case Study</span>
-        </div>
-        <div class="item-subtitle">Capri Holdings Team Case Study</div>
-        <p class="item-description">
-          Developed a charter document to establish three new centralized customer service hubs designed to optimize regional communication and elevate overall customer support efficiency.
-        </p>
-        <a href="#" class="project-link">View Charter Document &rarr;</a>
+      <div class="item">
+        <div class="title">Capri Holdings Team Case Study</div>
+        <div class="subtitle">Customer Service Centralization</div>
+        <p>Created a charter document to set up 3 new customer service hubs.</p>
+        <p><a href="#">View Charter Document</a></p>
       </div>
 
-      <div class="item-card">
-        <div class="item-header">
-          <span class="item-title">Packaging Strategy Case Study</span>
-        </div>
-        <div class="item-subtitle">Meridian Consumer Brands Team Case Study</div>
-        <p class="item-description">
-          Formulated a sustainable packaging redesign strategy and presented recommendations directly to an executive panel of industry professionals, including leadership from Johnson & Johnson.
-        </p>
-        <a href="#" class="project-link">View Presentation Deck &rarr;</a>
+      <div class="item">
+        <div class="title">Meridian Consumer Brands Team Case Study</div>
+        <div class="subtitle">Packaging Strategy</div>
+        <p>Created a new packaging strategy and presented it to a panel of professionals from Johnson & Johnson.</p>
+        <p><a href="#">View Presentation</a></p>
       </div>
     </section>
 
-    <!-- Technical Skills Section -->
-    <section class="section">
-      <h2>Technical & Analytical Skills</h2>
-      <div class="pill-container">
-        <span class="pill">SQL</span>
-        <span class="pill">Tableau</span>
-        <span class="pill">Microsoft Excel</span>
-        <span class="pill">Microsoft PowerPoint</span>
-        <span class="pill">Microsoft Word</span>
-        <span class="pill">Supply Chain Analytics</span>
-      </div>
-    </section>
-
-    <!-- Leadership & Mentorship Section -->
-    <section class="section">
-      <h2>Leadership & Mentorship</h2>
-      <ul class="leadership-list">
-        <li><strong>Mentor</strong>, Rutgers Undergraduate Women in Business</li>
-        <li><strong>Mentor</strong>, Rutgers University Supply Chain Association</li>
+    <!-- Skills -->
+    <section>
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Microsoft Office (PowerPoint, Excel, Word)</li>
+        <li>SQL</li>
+        <li>Tableau</li>
       </ul>
     </section>
 
-    <!-- Areas of Interest -->
-    <section class="section">
-      <h2>Areas of Interest</h2>
-      <div class="pill-container">
-        <span class="pill">Procurement</span>
-        <span class="pill">Operations</span>
-        <span class="pill">Consulting</span>
-        <span class="pill">Logistics</span>
-      </div>
+    <!-- Leadership -->
+    <section>
+      <h2>Leadership & Mentorship</h2>
+      <ul>
+        <li>Mentor, Rutgers Undergraduate Women in Business</li>
+        <li>Mentor, Rutgers University Supply Chain Association</li>
+      </ul>
+    </section>
+
+    <!-- Interests -->
+    <section>
+      <h2>Interests</h2>
+      <p>Procurement, Operations, Consulting, Logistics</p>
     </section>
 
     <footer>
-      <p>&copy; 2026 • Rutgers Business School Candidate</p>
+      <p>Rutgers Business School | Supply Chain Management</p>
     </footer>
 
   </div>
-
-</body>
-</html>
 
 </body>
 </html>
